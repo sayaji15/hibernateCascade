@@ -1,5 +1,8 @@
 package com.sayaji.hibernate.cascade;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
@@ -26,11 +29,23 @@ public class App
         emp.setLastName("Patil");
         
         Account acct = new Account();
-        acct.setAccountNumber("111-222-33");
+        acct.setAccountNumber("111-222-333");
+        acct.setEmployee(emp);
         
+        Account acct1 = new Account();
+        acct1.setAccountNumber("333-444-555");
+        acct1.setEmployee(emp);
+        
+        Set<Account> accounts = new HashSet<Account>();
+        accounts.add(acct);
+        accounts.add(acct1);
+        emp.setAccounts(accounts);
+        
+        System.out.println(emp);
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.save(acct);
+        session.save(emp);
         session.getTransaction().commit();
+       
     }
 }
