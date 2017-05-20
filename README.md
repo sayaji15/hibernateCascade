@@ -1,7 +1,7 @@
-Part of the output
+* Part of the output
 
-******************************************
-Hibernate: alter table ACCOUNT drop foreign key FKqcctlnq5qmxbjmcb69r2xidi8
+
+>Hibernate: alter table ACCOUNT drop foreign key FKqcctlnq5qmxbjmcb69r2xidi8
 Hibernate: alter table EMPLOYEE_ACCOUNT drop foreign key FKh2w7n9gweyk9hbc762dw1lksg
 Hibernate: alter table EMPLOYEE_ACCOUNT drop foreign key FKp4v9vrtcg10g3wiejlwsolvco
 Hibernate: drop table if exists ACCOUNT
@@ -21,9 +21,9 @@ Employee [employeeId=0, firstName=Sayaji, lastName=Patil, accounts=[Account [acc
 Hibernate: insert into EMPLOYEE (FIRST_NAME, LAST_NAME) values (?, ?)
 Hibernate: insert into ACCOUNT (ACCOUNT_NUM, EMPLOYEE_ID) values (?, ?)
 Hibernate: insert into ACCOUNT (ACCOUNT_NUM, EMPLOYEE_ID) values (?, ?)
-Hibernate: insert into EMPLOYEE_ACCOUNT (Employee_EMPLOYEE_ID, accounts_ACCOUNT_ID) values (?, ?)
-Hibernate: insert into EMPLOYEE_ACCOUNT (Employee_EMPLOYEE_ID, accounts_ACCOUNT_ID) values (?, ?)
-******************************************
+**Hibernate: insert into EMPLOYEE_ACCOUNT (Employee_EMPLOYEE_ID, accounts_ACCOUNT_ID) values (?, ?)
+Hibernate: insert into EMPLOYEE_ACCOUNT (Employee_EMPLOYEE_ID, accounts_ACCOUNT_ID) values (?, ?)**
+
 
 From the output you can see that hibernate created a third table EMPLOYEE_ACCOUNT to store the employee
 to account mappings. There is a way to tell hibernate to not create this extra table using "mappedBy"
